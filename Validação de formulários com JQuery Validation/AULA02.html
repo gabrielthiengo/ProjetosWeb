@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="charset" content="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JQuery Validation</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/additional-methods.min.js"></script>
+		<script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+
+		<script type="text/javascript">
+			
+			jQuery.validator.addMethod("arrobaNoInicio", function(value, element){
+				if(value.indexOF("@") == 0){
+					return true
+				}else{
+					return false
+				}
+			}, "Deve-se inserir arroba no início")
+
+			$(document).ready(function(){
+				$("#formCadastro").validate({
+					rules:{
+						nome:{
+							required: true,
+							maxlength: 100,
+							minlength: 10,
+							minWords: 2,
+						},
+						email:{
+							required: true,
+							email: true,
+
+						},
+						cidade:{
+							required: true,
+						},
+						idade:{
+							required: true,
+							min: 1,
+							max: 120,
+						},
+						insta:{
+							arrobaNoInicio: true,
+						},
+					},
+					submitHandler: function(form){
+						alert("Enviado com sucesso")
+					},
+				})
+			})
+		</script>
+	
+	</head>
+	<body>
+		<div class="container">
+			<h1>Validação de formulários com JQuery Validation</h1>
+			<form name="formCadastro" id="formCadastro", method="post">
+				<div class="row">
+					<label>Nome: </label>
+					<input type="text" name="nome" id="nome" class="form-control"/>
+				</div>
+				<div class="row">
+					<label>E-mail: </label>
+					<input type="text" name="email" id="email" class="form-control"/>
+				</div>
+				<div class="row">
+					<label>Cidade: </label>
+					<select name="cidade" id="cidade" class="form-control">
+						<option value="">----</option>
+						<option value="BH">Belo Horizonte</option>
+						<option value="CONTAGEM">Contagem</option>
+						<option value="BETIM">Betim</option>
+					</select>
+				</div>
+				<div class="row">
+					<label>Idade: </label>
+					<input type="number" name="idade" id="idade" class="form-control"/>
+				</div>
+				<div class="row">
+					<label>Instagram: </label>
+					<input type="text" name="insta" id="insta" class="form-control"/>
+				</div>
+				<div class="row">
+					<input type="submit" name="enviar" id="enviar" class="btn btn-primary form-control"/>
+				</div>
+			</form>
+		</div>
+
+	</body>
+</html>

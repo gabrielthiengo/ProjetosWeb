@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="charset" content="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inserindo o bootstrap</title>
+		<link rel="stylesheet" href="JQuery.css"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$("#cpf").mask("000.000.000-00")
+				$("#cnpj").mask("00.000.000/0000-00")
+				$("#rg").mask("AA-00.000.000")	
+
+				$("#placa").mask("AAA-0000")
+				$("#telefone").mask("(00) 0000-0000")
+				$("#celular").mask("(00) 0000-00009")
+				$("#celular").mask("(00) 0 0000-0000")
+				$("#dataNascimento").mask("00/00/0000")
+				$("#salario").mask("999.999.990,00", {reverse: true})
+				$("#cep").mask("00.000-000")
+				$("#codigo").mask("AA.AAA.000")
+				
+			})	
+
+		</script>
+	</head>
+	<body>
+		<div class="t1">
+			<h1 class="titulo">JQuery Mask Plugin</h1>
+		</div>
+		
+		<div class="container">
+			<form class="formulario" name="formulario" method="post">
+				<label>CPF:</label>
+				<input type="text" name="cpf" id="cpf" placeholder="Digite aqui">
+				<br />
+				<label>CNPJ:</label>
+				<input type="text" name="cnpj" id="cnpj" placeholder="Digite aqui">
+				<br />
+				<label>RG:</label>
+				<input type="text" name="rg" id="rg" placeholder="Digite aqui">
+				<br />
+				<label>Telefone:</label>
+				<input type="text" name="telefone" id="telefone" placeholder="Digite aqui">
+				<br />
+				<label>Celular:</label>
+				<input type="text" name="celular" id="celular" placeholder="Digite aqui">
+				<br />
+				<label>Salário:</label>
+				<input type="text" name="salario" id="salario" placeholder="Digite aqui">
+				<br />
+				<label>CEP:</label>
+				<input type="text" name="cep" id="cep" placeholder="Digite aqui">
+				<br />
+				<label>Data de Nascimento:</label>
+				<input type="text" name="dataNascimento" id="dataNascimento" placeholder="Digite aqui">
+				<br />
+				<label>Placa:</label>
+				<input type="text" name="placa" id="placa" placeholder="Digite aqui">
+				<br />
+				<label>Código:</label>
+				<input type="text" name="codigo" id="codigo" placeholder="Digite aqui">
+				<br />
+				<input id="enviar" type="submit" name="enviar" value="Enviar">
+			</form>
+		</div>
+	</body>
+</html>
